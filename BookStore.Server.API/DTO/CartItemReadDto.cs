@@ -20,7 +20,7 @@ namespace BookStore.Server.API.DTO
         [JsonPropertyName("count")]
         public int Count { get; set; }
 
-        [JsonIgnore]
+        [JsonPropertyName("product")]
         public ProductReadDto Product { get; set; }
 
         [JsonIgnore]

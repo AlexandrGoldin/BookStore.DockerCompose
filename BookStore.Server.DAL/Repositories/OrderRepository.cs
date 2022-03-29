@@ -2,7 +2,6 @@
 using BookStore.Server.DAL.Entities;
 using BookStore.Server.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -38,7 +37,6 @@ namespace BookStore.Server.DAL.Repositories
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
             return order;
-
         }
 
         public async Task DeleteOrderAsync(int id)

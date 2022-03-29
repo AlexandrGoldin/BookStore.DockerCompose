@@ -3,7 +3,6 @@ using BookStore.Server.API.DtoHandlers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -29,7 +28,7 @@ namespace BookStore.Server.API.Controllers
         /// <summary>
         /// Gets the list of orders
         /// </summary>
-        /// <returns>Returns OrderReadDto</returns>
+        /// <returns>Returns list OrderReadDto</returns>
         /// <response code="200">Success</response>
         /// <response code="400">If the request its bad</response>
         [HttpGet, Route("Index")]
@@ -39,10 +38,32 @@ namespace BookStore.Server.API.Controllers
         {
             _logger.LogDebug("GettingAll Orders method executing...");
             var orders = await _orderHandler.GetOrderListAsync();
-            var ordersJson = JsonConvert.SerializeObject(orders);
             _logger.LogInformation($"Returning {orders.Count} orders.");
 
-            return Ok(ordersJson);
+            return Ok(orders);
+        }
+
+        // GET api/Admin/5
+        /// <summary>
+        /// Gets a order by id
+        /// </summary>
+        /// Semple request:
+        /// GET api/Admin/5
+        /// <param name="id"></param>
+        /// <returns>OrderReadDto</returns>
+        /// <response code="200">Success</response>
+        /// <response code="400">If the request its bad</response>
+        [HttpGet, Route("GetOrder/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetOrderAsync(int id)
+        {
+            var orderReadDto = await _orderHandler.GetOrderAsync(id);
+            if (orderReadDto.Id == 0)
+            {
+                return BadRequest();
+            }
+            return Ok(orderReadDto);
         }
 
         // DELETE api/Admin/DeleteOrder/5
@@ -51,7 +72,7 @@ namespace BookStore.Server.API.Controllers
         /// </summary>
         /// <remarks>
         /// Semple request:
-        /// DELETE api/Admin/DeleteOrder/5
+        /// DELETE api/AdminAdmin/DeleteOrder/5
         /// </remarks>
         /// <param name="id">Id of the order (int)</param>
         /// <returns>Returns Ok</returns>
@@ -62,6 +83,11 @@ namespace BookStore.Server.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> DeleteOrder(int id)
         {
+            var order = await _orderHandler.GetOrderAsync(id);
+            if(order.Id==0)
+            {
+                return BadRequest();
+            }
             await _orderHandler.DeleteOrderAsync(id);
             _logger.LogInformation($"Deleting order with Id:{id}");
 
@@ -72,7 +98,7 @@ namespace BookStore.Server.API.Controllers
         /// <summary>
         /// Gets the list of products(books)
         /// </summary>
-        /// <returns>Returns List<ProductReadDto></returns>
+        /// <returns>Returns list ProductReadDto</returns>
         /// <response code="200">Success</response>
         /// <response code="400">If the request its bad</response>
         [HttpGet]
@@ -100,7 +126,12 @@ namespace BookStore.Server.API.Controllers
         public async Task<ActionResult<ProductReadDto>> GetProduct(int id)
         {
             _logger.LogInformation($"Getting product with Id:{id}");
-            return await _productHandler.GetProductAsync(id);
+            var productReadDto= await _productHandler.GetProductAsync(id);
+            if(productReadDto==null)
+            {
+                return BadRequest();
+            }
+            return Ok(productReadDto);
         }
 
         // POST api/Admin/SaveProduct
@@ -151,6 +182,12 @@ namespace BookStore.Server.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> DeleteProduct(int id)
         {
+            var product = await _productHandler.GetProductAsync(id);
+            if(product==null)
+            {
+                return BadRequest();
+            }
+
             await _productHandler.DeleteProductAsync(id);
             _logger.LogInformation($"Deleting order with Id:{id}");
 

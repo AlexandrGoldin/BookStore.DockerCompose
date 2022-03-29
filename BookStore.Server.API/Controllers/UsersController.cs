@@ -28,10 +28,11 @@ namespace BookStore.Server.API.Controllers
         /// <summary>
         /// Gets the list of products(books)
         /// </summary>
-        /// <returns>Returns ProductReadDto</returns>
+        /// <returns>Returns list ProductReadDto</returns>
         /// <response code="200">Success</response>
         /// <response code="400">If the request its bad</response>
-        [HttpGet,Route("Index")]
+        //[HttpGet,Route("Index")]
+        [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<List<ProductReadDto>> Index()
@@ -48,10 +49,11 @@ namespace BookStore.Server.API.Controllers
         /// <returns>Returns OrderReadDto</returns>
         /// <response code="201">Success</response> 
         /// <response code="400">Bad Request</response>
-        [HttpPost, Route("CreateOrder")]
+        //[HttpPost, Route("CreateOrder")]
+        [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> CreateOrder([FromBody]OrderCreateDto orderCreateDto)
+        public async Task<IActionResult> CreateOrderAsync([FromBody]OrderCreateDto orderCreateDto)
         {
             _logger.LogInformation("Post method executing...");
             if (orderCreateDto == null)
@@ -59,9 +61,9 @@ namespace BookStore.Server.API.Controllers
                 _logger.LogWarning("orderCreateDto == null and cant be created");
                 return BadRequest();
             }
-            await _orderHandler.SaveOrderAsync(orderCreateDto);
-            _logger.LogInformation($"Created Oder for the amount:{orderCreateDto.Total}");
-            return new ObjectResult(orderCreateDto){ StatusCode = StatusCodes.Status201Created };
+           var orderReadDto= await _orderHandler.SaveOrderAsync(orderCreateDto);
+            var orderRes=await _orderHandler.GetOrderAsync(orderReadDto.Id);
+            return new ObjectResult(orderRes) { StatusCode = StatusCodes.Status201Created };
         }
     }
 }

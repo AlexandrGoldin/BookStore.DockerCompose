@@ -12,8 +12,4 @@
     <ProjectReference Include="..\BookStore.Server.DAL\BookStore.Server.DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\Logic\" />
-  </ItemGroup>
-
 </Project>

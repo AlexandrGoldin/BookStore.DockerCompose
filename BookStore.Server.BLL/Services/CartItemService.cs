@@ -2,7 +2,6 @@
 using BookStore.Server.BLL.Interfaces;
 using BookStore.Server.BLL.Models;
 using BookStore.Server.DAL.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -14,7 +13,6 @@ namespace BookStore.Server.BLL.Services
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
 
-        //  changr on DataManger 
         public CartItemService(ICartItemRepository cartItemRepository,
             IProductRepository productRepository, IMapper mapper)
         {
@@ -42,7 +40,7 @@ namespace BookStore.Server.BLL.Services
                 };
                 cartItemsMList.Add(cartItemM);
             }
-            return cartItemsMList; // :))) !!!
+            return cartItemsMList; 
         }
 
         public async Task<CartItemModel> GetCartItemAsync(int id)
@@ -60,16 +58,6 @@ namespace BookStore.Server.BLL.Services
                 Product = _mapper.Map<ProductModel>(product)
             };
             return cartItemModel;
-        }
-
-        public async Task<CartItemModel> SaveCartItemAsync(CartItemModel cartItemModel)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task DeleteCartItemAsync(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -10,10 +10,9 @@ namespace BookStore.Server.DAL.Data
         {
             context.Database.EnsureCreated();
 
-            // Look for any products.
             if (context.Products.Any())
             {
-                return;   // DB has been seeded
+                return;   
             }
 
             var products = new Product[]

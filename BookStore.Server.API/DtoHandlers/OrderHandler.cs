@@ -4,8 +4,6 @@ using BookStore.Server.BLL.Interfaces;
 using BookStore.Server.BLL.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace BookStore.Server.API.DtoHandlers
@@ -27,12 +25,17 @@ namespace BookStore.Server.API.DtoHandlers
             return _mapper.Map<List<OrderReadDto>>(orderModels);
         }
 
+        public async Task<OrderReadDto> GetOrderAsync(int id)
+        {
+            var orderModel = await _orderService.GetOrderAsync(id);
+            return _mapper.Map<OrderReadDto>(orderModel);
+        }
+
         public async Task<OrderReadDto> SaveOrderAsync(OrderCreateDto orderCreateDto)
         {
             var orderModel = _mapper.Map<OrderModel>(orderCreateDto);
-            await _orderService.SaveOrderAsync(orderModel);
-
-            var orderReadDto = _mapper.Map<OrderReadDto>(orderModel);
+            var orderModelNew= await _orderService.SaveOrderAsync(orderModel);
+            var orderReadDto = _mapper.Map<OrderReadDto>(orderModelNew);
             return orderReadDto;
         }
 

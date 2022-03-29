@@ -42,8 +42,6 @@ namespace BookStore.Server.API.DtoHandlers
         public async Task<ProductReadDto> GetProductAsync(int id)
         {
             var productModel = await _productService.GetProductAsync(id);
-            if (productModel == null)
-                throw new ValidationException();
 
             return _mapper.Map<ProductReadDto>(productModel);
         }

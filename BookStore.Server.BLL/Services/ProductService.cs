@@ -37,11 +37,7 @@ namespace BookStore.Server.BLL.Services
         public async Task<ProductModel> GetProductAsync(int id)
         {
             var product = await _productRepository.GetProductAsync(id);
-            if (product == null)
-            {
-                _logger.LogWarning($"Product with Id:{id} not found");
-                throw new ValidationException();
-            }
+            
             _logger.LogInformation($"Getting the product with Id:{id}");
             return _mapper.Map<ProductModel>(product);
         }

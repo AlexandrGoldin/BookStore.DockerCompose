@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Server.BLL.Services
 {
-    public class OrderService: IOrderService
+    public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
         private readonly ICartItemRepository _cartItemRepository;
@@ -19,7 +19,7 @@ namespace BookStore.Server.BLL.Services
         private readonly ILogger<OrderService> _logger;
 
         public OrderService(IOrderRepository orderRepository, ICartItemRepository cartItemRepository,
-           IProductRepository roductRepository,  IMapper mapper, ILogger<OrderService> logger)
+           IProductRepository roductRepository, IMapper mapper, ILogger<OrderService> logger)
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _orderRepository = orderRepository ?? throw new ArgumentNullException(nameof(orderRepository));
@@ -34,14 +34,47 @@ namespace BookStore.Server.BLL.Services
             await _orderRepository.DeleteOrderAsync(id);
         }
 
-        public Task<OrderModel> GetOrderAsync(int id)
+        public async Task<OrderModel> GetOrderAsync(int id)
         {
-            throw new NotImplementedException();
+            Order order = await _orderRepository.GetOrderAsync(id);
+            OrderModel orderModel = new OrderModel();
+            List<CartItemModel> cartItemModelList = new List<CartItemModel>();
+            List<CartItem> cartItemList = _cartItemRepository.GetCartItemByOrderIdList(id);
+
+            foreach (var i in cartItemList)
+            {
+                var product = await _roductRepository.GetProductAsync(i.ProductId);
+
+                var cartItemModel = new CartItemModel()
+                {
+                    Id = i.Id,
+                    OrderId = i.OrderId,
+                    ProductId = i.ProductId,
+                    Count = i.Count,
+                    Product = _mapper.Map<ProductModel>(product)
+                };
+                cartItemModelList.Add(cartItemModel);
+            }
+            _logger.LogInformation($"GetOrderList method created cartItemModelList in quantity:{cartItemModelList.Count}");
+
+            if (order!= null)
+            orderModel = new OrderModel()
+            {
+                Id = order.Id,
+                Name = order.Name,
+                Email = order.Email,
+                Address = order.Address,
+                OrderDate = order.OrderDate,
+                Total = order.Total,
+                CartItems = cartItemModelList
+            };
+            _logger.LogInformation($"GetOrderList method  creatied orderModelList in quantity:{orderModel.Total}");
+            return orderModel;
         }
 
         public async Task<IEnumerable<OrderModel>> GetOrderListAsync()
         {
-           _logger.LogInformation("Getting all orders method executing...");
+            _logger.LogInformation("Getting all orders method executing...");
             List<OrderModel> orderModelList = new List<OrderModel>();
             var orderIdList = await _orderRepository.GetOrderListAsync();
 
@@ -53,7 +86,7 @@ namespace BookStore.Server.BLL.Services
 
                 foreach (var i in cartItemList)
                 {
-                    var product =await _roductRepository.GetProductAsync(i.ProductId);
+                    var product = await _roductRepository.GetProductAsync(i.ProductId);
 
                     var cartItemModel = new CartItemModel()
                     {
@@ -67,7 +100,7 @@ namespace BookStore.Server.BLL.Services
                 }
                 _logger.LogInformation($"GetOrderList method created cartItemModelList in quantity:{cartItemModelList.Count}");
 
-                var order =await _orderRepository.GetOrderAsync(o.Id);
+                var order = await _orderRepository.GetOrderAsync(o.Id);
 
                 if (order != null)
                     orderModel = new OrderModel()
@@ -95,6 +128,6 @@ namespace BookStore.Server.BLL.Services
             return _mapper.Map<OrderModel>(order);
 
         }
-    }  
+    }
 }
 

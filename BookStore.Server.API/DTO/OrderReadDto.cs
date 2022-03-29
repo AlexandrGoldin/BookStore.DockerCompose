@@ -13,7 +13,7 @@ namespace BookStore.Server.API.DTO
         public OrderReadDto()
         {
             CartItems = new List<CartItemReadDto>();
-            OrderDate = DateTime.Now;
+            //OrderDate = DateTime.Now;//???
         }
 
         [Key]
