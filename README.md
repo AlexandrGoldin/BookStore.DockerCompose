@@ -1,7 +1,6 @@
 # BookStore.Server
 C# Backend of the Client-Server PC pet-project of the online sopping "BookStore". 
-
-### Developed in Visual Studio 2019
+Developed in Visual Studio 2019
 
 ### Stack:
 * MS SQL Server
