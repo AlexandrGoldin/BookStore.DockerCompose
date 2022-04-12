@@ -5,8 +5,8 @@ Developed in Visual Studio 2019
 ### Database 
 * 1.Using Entity Framework Core solution with approach Code-First.
 This database is being created when the project is first run.
-The DbInitializer.cs file from the directory BookStore.Server.DAL/Data/ is used to initialize this database.
-* 2.To create a database, you can use the BookStoreScript.sql file from the repo [BookStore.SqlScript](https://github.com/GoldinAlexander/BookStore.SqlScript.git)
+The *DbInitializer.cs* file from the directory BookStore.Server.DAL/Data/ is used to initialize this database.
+* 2.To create a database, you can use the *BookStoreScript.sql* file from the repo [BookStore.SqlScript](https://github.com/GoldinAlexander/BookStore.SqlScript.git)
 
 
 
