@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BookStore.Server.BLL.BLLMappingProfile;
 using BookStore.Server.BLL.Models;
-using BookStore.Server.BLL.Services;
+using BookStore.Server.BLLServices;
 using BookStore.Server.DAL.Interfaces;
 using BookStore.Server.UnitTests.ServiceFake;
 using Microsoft.Extensions.Logging;
@@ -14,11 +14,8 @@ namespace BookStore.Server.UnitTests.Tests
     public class UsersController_ProductListTests
     {
         private readonly ProductService _productService;
-        private readonly OrderService _orderService;
         private readonly IProductRepository _productRepository;
-        private readonly IOrderRepository _orderRepository;
         private static IMapper _mapper;
-        private static IMapper _orderMapper;
 
         public UsersController_ProductListTests()
         {

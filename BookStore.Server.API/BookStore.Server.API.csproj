@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -12,7 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BookStore.Server.BLLServices\BookStore.Server.BLLServices.csproj" />
     <ProjectReference Include="..\BookStore.Server.BLL\BookStore.Server.BLL.csproj" />
+    <ProjectReference Include="..\BookStore.Server.Infrastructure\BookStore.Server.Infrastructure.csproj" />
   </ItemGroup>
 
 

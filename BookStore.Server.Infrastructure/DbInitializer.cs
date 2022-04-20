@@ -1,8 +1,7 @@
-﻿using BookStore.Server.DAL.EF;
-using BookStore.Server.DAL.Entities;
+﻿using BookStore.Server.DAL.Entities;
 using System.Linq;
 
-namespace BookStore.Server.DAL.Data
+namespace BookStore.Server.Infrastructure
 {
     public class DbInitializer
     {
@@ -12,7 +11,7 @@ namespace BookStore.Server.DAL.Data
 
             if (context.Products.Any())
             {
-                return;   
+                return;
             }
 
             var products = new Product[]

@@ -5,7 +5,7 @@ using BookStore.Server.DAL.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BookStore.Server.BLL.Services
+namespace BookStore.Server.BLLServices
 {
     public class CartItemService : ICartItemService
     {
@@ -40,7 +40,7 @@ namespace BookStore.Server.BLL.Services
                 };
                 cartItemsMList.Add(cartItemM);
             }
-            return cartItemsMList; 
+            return cartItemsMList;
         }
 
         public async Task<CartItemModel> GetCartItemAsync(int id)

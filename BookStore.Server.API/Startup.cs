@@ -1,10 +1,10 @@
 using AutoMapper;
 using BookStore.Server.API.DtoHandlers;
 using BookStore.Server.BLL.Interfaces;
-using BookStore.Server.BLL.Services;
-using BookStore.Server.DAL.EF;
+using BookStore.Server.BLLServices;
 using BookStore.Server.DAL.Interfaces;
-using BookStore.Server.DAL.Repositories;
+using BookStore.Server.Infrastructure;
+using BookStore.Server.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

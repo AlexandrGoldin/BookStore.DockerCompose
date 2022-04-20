@@ -5,7 +5,6 @@ using BookStore.Server.BLL.Models;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
 namespace BookStore.Server.API.DtoHandlers

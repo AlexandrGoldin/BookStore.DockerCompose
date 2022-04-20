@@ -1,12 +1,11 @@
-﻿using BookStore.Server.DAL.EF;
-using BookStore.Server.DAL.Entities;
+﻿using BookStore.Server.DAL.Entities;
 using BookStore.Server.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookStore.Server.DAL.Repositories
+namespace BookStore.Server.Infrastructure.Repositories
 {
     public class OrderRepository : IOrderRepository
     {

@@ -6,10 +6,9 @@ using BookStore.Server.DAL.Interfaces;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
-namespace BookStore.Server.BLL.Services
+namespace BookStore.Server.BLLServices
 {
     public class ProductService : IProductService
     {
@@ -17,7 +16,7 @@ namespace BookStore.Server.BLL.Services
         private readonly IMapper _mapper;
         private readonly ILogger<ProductService> _logger;
 
-        public ProductService(IProductRepository productRepository, IMapper mapper, 
+        public ProductService(IProductRepository productRepository, IMapper mapper,
             ILogger<ProductService> logger)
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
@@ -37,7 +36,7 @@ namespace BookStore.Server.BLL.Services
         public async Task<ProductModel> GetProductAsync(int id)
         {
             var product = await _productRepository.GetProductAsync(id);
-            
+
             _logger.LogInformation($"Getting the product with Id:{id}");
             return _mapper.Map<ProductModel>(product);
         }
@@ -49,7 +48,7 @@ namespace BookStore.Server.BLL.Services
             await _productRepository.SaveProductAsync(product);
             _logger.LogInformation($"Saving product with name:{productModel.Title}");
 
-            return _mapper.Map<ProductModel>(product);          
+            return _mapper.Map<ProductModel>(product);
         }
 
         public async Task DeleteProductAsync(int id)
@@ -59,4 +58,3 @@ namespace BookStore.Server.BLL.Services
         }
     }
 }
-

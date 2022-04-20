@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BookStore.Server.BLL.Services
+namespace BookStore.Server.BLLServices
 {
     public class OrderService : IOrderService
     {
@@ -57,17 +57,17 @@ namespace BookStore.Server.BLL.Services
             }
             _logger.LogInformation($"GetOrderList method created cartItemModelList in quantity:{cartItemModelList.Count}");
 
-            if (order!= null)
-            orderModel = new OrderModel()
-            {
-                Id = order.Id,
-                Name = order.Name,
-                Email = order.Email,
-                Address = order.Address,
-                OrderDate = order.OrderDate,
-                Total = order.Total,
-                CartItems = cartItemModelList
-            };
+            if (order != null)
+                orderModel = new OrderModel()
+                {
+                    Id = order.Id,
+                    Name = order.Name,
+                    Email = order.Email,
+                    Address = order.Address,
+                    OrderDate = order.OrderDate,
+                    Total = order.Total,
+                    CartItems = cartItemModelList
+                };
             _logger.LogInformation($"GetOrderList method  creatied orderModelList in quantity:{orderModel.Total}");
             return orderModel;
         }
@@ -130,4 +130,3 @@ namespace BookStore.Server.BLL.Services
         }
     }
 }
-

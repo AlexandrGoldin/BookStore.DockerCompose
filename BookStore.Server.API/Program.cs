@@ -1,5 +1,4 @@
-using BookStore.Server.DAL.Data;
-using BookStore.Server.DAL.EF;
+using BookStore.Server.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

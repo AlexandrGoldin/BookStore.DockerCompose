@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 namespace BookStore.Server.BLL.Models
 {
     public class ProductModel
-    { 
+    {
         [Key]
         public int Id { get; set; }
 

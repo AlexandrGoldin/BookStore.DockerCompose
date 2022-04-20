@@ -1,7 +1,7 @@
 ﻿using BookStore.Server.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookStore.Server.DAL.EF
+namespace BookStore.Server.Infrastructure
 {
     public class BookStoreContext : DbContext
     {

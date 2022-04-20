@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BookStore.Server.BLL.Models;
-using BookStore.Server.BLL.Services;
+using BookStore.Server.BLLServices;
 using BookStore.Server.DAL.Interfaces;
 using BookStore.Server.UnitTests.ServiceFake;
 using Microsoft.Extensions.Logging;
