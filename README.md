@@ -1,7 +1,7 @@
 # BookStore.Server
 ### C# Backend of the Client-Server PC pet-project of the online sopping "BookStore". 
 ### Developed in Visual Studio 2019
-
+___
 ### Stack:
 * MS SQL Server
 * TSQL
@@ -15,7 +15,7 @@
 * AutoMapper
 * MemoryCache
 * xUnit
-
+___
 ### VS Solution Arhitecture **BookStore.Server** app uses onion architecture, dependency inversion principle
 ![VSSolutionStructure](https://user-images.githubusercontent.com/75939181/164613381-fc99307b-abd0-469e-b874-508f09d0efc0.JPG)
 
