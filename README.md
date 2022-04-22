@@ -18,7 +18,7 @@ ___
 ___
 ### VS Solution Arhitecture **BookStore.Server** app uses onion architecture, dependency inversion principle
 ![VSSolutionStructure](https://user-images.githubusercontent.com/75939181/164613381-fc99307b-abd0-469e-b874-508f09d0efc0.JPG)
-
+___
 ### Database initialization 
 1. Using Entity Framework Core solution with approach Code-First.
 This database is being created when the project is first run.
