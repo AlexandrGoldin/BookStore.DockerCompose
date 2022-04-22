@@ -24,4 +24,6 @@ The *DbInitializer.cs* file from the directory BookStore.Server.DAL/Data/ is use
 * MemoryCache
 * xUnit
 
+* VS Solution Arhitecture **BookStore.Server** uses onion architecture, dependency inversion principle
+
 
