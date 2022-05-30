@@ -1,5 +1,6 @@
 # BookStore.Server
 ### C# Backend of the Client-Server PC pet-project of the online sopping "BookStore". 
+### BoocStore.Server deployed on host somee.com Url: http://esalebookstore.somee.com, on host reg.ru Url: https://bookstore-server.ru
 ### Data Base deployed on host somee.com
 ### Developed in Visual Studio 2019
 ___
