@@ -1,5 +1,6 @@
 # BookStore.Server
 ### C# Backend of the Client-Server PC pet-project of the online sopping "BookStore". 
+### Data Base deployed on host somee.com
 ### Developed in Visual Studio 2019
 ___
 ### Stack:
