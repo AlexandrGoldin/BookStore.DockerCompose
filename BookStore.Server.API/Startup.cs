@@ -7,6 +7,7 @@ using BookStore.Server.Infrastructure;
 using BookStore.Server.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -44,6 +45,12 @@ namespace BookStore.Server.API
                         .AllowAnyMethod()
                         .AllowAnyHeader();
                     });
+            });
+
+            services.AddHttpsRedirection(options =>
+            {
+                options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
+                options.HttpsPort = 44344;
             });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
