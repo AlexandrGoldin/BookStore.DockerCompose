@@ -22,7 +22,7 @@ The *DbInitializer.cs* file from the directory BookStore.Server.DAL/Data/ is use
 2. To create a database, you can use the *BookStoreScript.sql* file from the repo [BookStore.SqlScript](https://github.com/GoldinAlexander/BookStore.SqlScript.git)
 ____________________
 ### File docker-compose.yml 
-![docker_compose_v1](https://github.com/AlexandrGoldin/BookStore.DockerCompose/assets/50864552/48e86e9b-6548-48ed-9ab0-2c5db2cc453b)
+![docker-compose](https://github.com/AlexandrGoldin/BookStore.DockerCompose/assets/50864552/59890152-e36e-4bdc-8bcb-e15b1248fb84)
 ___________________________
 ### File nginx.conf 
 ![file nginx conf](https://github.com/AlexandrGoldin/BookStore.DockerCompose/assets/50864552/35caa2b5-1a54-42d0-8373-6d1133f64ad2)
