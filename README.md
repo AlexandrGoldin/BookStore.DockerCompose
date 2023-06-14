@@ -1,5 +1,5 @@
 # BookStore.DockerCompose
-### Full stack PC pet-project of the online sopping "BookStore" includes: Backend-Asp.Net Core; Client-React.js; Proxy Server-Nginx; Docker and Docker Compose with Linux containers.
+### Full stack PC project of the online store emulator "BookStore" includes: Backend-Asp.Net Core; Client-React.js; Proxy Server-Nginx; Docker and Docker Compose with Linux containers.
 ### BookStore.Client-docker image deployed on Dockerhub 
 https://hub.docker.com/r/dockerhubdockerid2022/bookstore_client_for_use_proxy
 ### Data Base deployed on host somee.com
@@ -11,7 +11,7 @@ ___
 * React.js
 * Redux
 * Docker
-* Docker Compose
+* Docker Composeэмулятор интернет магазина
 * Nginx
 * PowerShell
 ___
