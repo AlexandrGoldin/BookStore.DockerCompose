@@ -15,16 +15,13 @@ ___
 * Nginx
 * PowerShell
 ___
-### VS Solution Arhitecture **BookStore.Server** app uses onion architecture, dependency inversion principle
-![VSSolutionStructure](https://user-images.githubusercontent.com/75939181/164613381-fc99307b-abd0-469e-b874-508f09d0efc0.JPG)
-___
 ### Database initialization 
 1. Using Entity Framework Core solution with approach Code-First.
 This database is being created when the project is first run.
 The *DbInitializer.cs* file from the directory BookStore.Server.DAL/Data/ is used to initialize this database.
 2. To create a database, you can use the *BookStoreScript.sql* file from the repo [BookStore.SqlScript](https://github.com/GoldinAlexander/BookStore.SqlScript.git)
 ____________________
-### file docker-Compose.yml 
+### File docker-compose.yml 
 ![docker_compose_v1](https://github.com/AlexandrGoldin/BookStore.DockerCompose/assets/50864552/48e86e9b-6548-48ed-9ab0-2c5db2cc453b)
 ___________________________
 ### File nginx.conf 
