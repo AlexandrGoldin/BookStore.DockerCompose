@@ -1,0 +1,31 @@
+version: '3.4'
+
+networks:
+  bookstoreapp:
+
+services:
+  bookstore.server.api: 
+    image: ${DOCKER_REGISTRY-}bookstoreserverapi
+    build:
+      context: .
+      dockerfile: BookStore.Server.API/Dockerfile
+    ports:
+      - 5001:443
+    networks:
+      - bookstoreapp
+   
+  bookstore.client: 
+    image: dockerhubdockerid2022/bookstore_client_for_use_proxy
+    ports:
+      - 3000:3000
+    networks:
+      - bookstoreapp
+       
+  proxy:
+    image: nginx:mainline
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    networks:
+      - bookstoreapp
