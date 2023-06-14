@@ -11,7 +11,7 @@ ___
 * React.js
 * Redux
 * Docker
-* Docker Composeэмулятор интернет магазина
+* Docker Compose
 * Nginx
 * PowerShell
 ___
