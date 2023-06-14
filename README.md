@@ -15,12 +15,6 @@ ___
 * Nginx
 * PowerShell
 ___
-### Database initialization 
-1. Using Entity Framework Core solution with approach Code-First.
-This database is being created when the project is first run.
-The *DbInitializer.cs* file from the directory BookStore.Server.DAL/Data/ is used to initialize this database.
-2. To create a database, you can use the *BookStoreScript.sql* file from the repo [BookStore.SqlScript](https://github.com/GoldinAlexander/BookStore.SqlScript.git)
-____________________
 ### File docker-compose.yml 
 ![docker-compose](https://github.com/AlexandrGoldin/BookStore.DockerCompose/assets/50864552/59890152-e36e-4bdc-8bcb-e15b1248fb84)
 ___________________________
