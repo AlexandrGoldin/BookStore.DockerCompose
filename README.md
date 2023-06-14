@@ -1,22 +1,19 @@
-# BookStore.Server
-### C# Backend of the Client-Server PC pet-project of the online sopping "BookStore". 
-### BoocStore.Server deployed on host somee.com Url: http://esalebookstore.somee.com, on host reg.ru Url: https://bookstore-server.ru
+# BookStore.DockerCompose
+### Full stack PC pet-project of the online sopping "BookStore" includes: Backend-Asp.Net Core; Client-React.js; Proxy Server-Nginx; Docker and Docker Compose with Linux containers.
+### BookStore.Client-docker image deployed on Dockerhub 
+https://hub.docker.com/r/dockerhubdockerid2022/bookstore_client_for_use_proxy
 ### Data Base deployed on host somee.com
-### Developed in Visual Studio 2019
+### Developed in Visual Studio 2022/Docker Desktop 4.19.0
 ___
 ### Stack:
-* MS SQL Server
-* TSQL
-* ASP.NET Core 3.1
-* Web API
+* .Net Core Web API
 * Entity Framework Core
-* N-tier architecture
-* CORS
-* Swashbuckle
-* Data Transfer Object
-* AutoMapper
-* MemoryCache
-* xUnit
+* React.js
+* Redux
+* Docker
+* Docker Compose
+* Nginx
+* PowerShell
 ___
 ### VS Solution Arhitecture **BookStore.Server** app uses onion architecture, dependency inversion principle
 ![VSSolutionStructure](https://user-images.githubusercontent.com/75939181/164613381-fc99307b-abd0-469e-b874-508f09d0efc0.JPG)
